@@ -1,0 +1,400 @@
+@charset "UTF-8";
+/* Imports
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+@import url(normalize.css);
+/* Variables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* fonts */
+/* colors */
+/* textures */
+/* images */
+/* sizes */
+/* Mixins
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* Common Classes
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+a {
+  color: #29abe2;
+  text-decoration: underline; }
+  a:hover {
+    color: #047999;
+    text-decoration: none; }
+
+.fixed-width {
+  width: 900px;
+  margin: 0 auto;
+  position: relative; }
+
+/* HTML Elements
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+body {
+  font-family: "futura-pt", sans-serif;
+  color: #000;
+  background: url(images/paper/sand.jpg); }
+
+/* header */
+header {
+  width: 100%;
+  height: 224px; }
+  header .title {
+    position: absolute;
+    left: -63px;
+    top: 6px;
+    width: 650px;
+    height: 167px;
+    background: url(images/title.png);
+    background-size: 650px;
+    background-repeat: no-repeat; }
+    header .title a {
+      position: absolute;
+      left: 140px;
+      top: 58px;
+      width: 362px;
+      height: 55px;
+      text-indent: -9999px;
+      overflow: hidden;
+      z-index: 1; }
+  header .fixed-width .stripe {
+    position: absolute;
+    width: 75%;
+    height: 15px;
+    top: 116px;
+    left: 25%;
+    background: none;
+    z-index: -1; }
+    header .fixed-width .stripe .detail {
+      position: absolute;
+      background-image: url(images/header-dog.png);
+      background-size: 48px;
+      width: 48px;
+      height: 29px;
+      left: 352px;
+      top: -27px; }
+  header .stripe {
+    position: absolute;
+    width: 60%;
+    height: 15px;
+    left: 40%;
+    top: 116px;
+    background-image: url(images/header-stripe.png);
+    background-size: 305px;
+    z-index: -1; }
+    header .stripe .detail {
+      position: relative;
+      background-image: url(images/header-sloth.png);
+      background-size: 125px;
+      width: 125px;
+      height: 93px;
+      display: block;
+      float: right;
+      top: -4px;
+      margin-right: 35px; }
+  header .navigation {
+    list-style: none;
+    position: absolute;
+    left: 0px;
+    top: 170px;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    text-align: center; }
+    header .navigation li {
+      display: inline-block;
+      padding: 0px;
+      margin: 0px 5px;
+      font-size: 22px; }
+      header .navigation li a {
+        text-decoration: none;
+        color: #333;
+        padding: 0px 5px; }
+      header .navigation li:hover {
+        border-bottom: 1px solid #333; }
+    header .navigation li.selected {
+      border-bottom: 1px solid #333; }
+    header .navigation li.separator {
+      background: url(images/separator-fish.png);
+      background-size: 26px;
+      width: 26px;
+      height: 26px;
+      position: relative;
+      top: 5px;
+      padding: 0px; }
+      header .navigation li.separator:hover {
+        border: none; }
+    header .navigation li.search {
+      position: relative;
+      border-bottom: 1px solid #333; }
+      header .navigation li.search input {
+        background: none;
+        border-style: none;
+        width: 175px;
+        padding: 0px 30px 0px 5px;
+        outline: none;
+        color: #333; }
+      header .navigation li.search .search-button {
+        font-size: 20px;
+        position: absolute;
+        left: 180px;
+        top: 4px;
+        cursor: pointer; }
+        header .navigation li.search .search-button:hover {
+          text-decoration: none; }
+  header .social {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%; }
+    header .social a {
+      display: block;
+      float: right;
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+      margin-left: 10px;
+      margin-top: 35px;
+      text-indent: -999px;
+      background-size: 50px; }
+    header .social .instagram {
+      margin-right: 35px;
+      background-image: url(images/link-instagram.png); }
+    header .social .twitter {
+      background-image: url(images/link-twitter.png); }
+    header .social .lastfm {
+      background-image: url(images/link-last-fm.png); }
+
+/* content - general */
+#main {
+  box-shadow: 0px 1px 2px #000;
+  background: url(images/paper/eggshell.jpg);
+  margin-top: 15px; }
+  #main article {
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    position: relative; }
+    #main article h1 {
+      font-family: "azo-sans-uber", sans-serif;
+      text-align: center;
+      margin: 0px;
+      padding: 15px;
+      color: #000; }
+
+/* content - list pages */
+body.blog header .navigation .separator {
+  margin: 0px 10px; }
+body.blog #main article {
+  height: 280px; }
+  body.blog #main article ul.meta {
+    width: 110px;
+    list-style: none;
+    margin: 0px 15px 0px 0px;
+    padding: 0px;
+    display: block;
+    float: left; }
+    body.blog #main article ul.meta li.year {
+      font-size: 20px;
+      line-height: 20px; }
+    body.blog #main article ul.meta li.month {
+      font-size: 30px;
+      line-height: 23px;
+      font-weight: bold; }
+    body.blog #main article ul.meta li.day {
+      font-size: 85px;
+      line-height: 85px;
+      text-align: center;
+      font-family: "azo-sans-uber", sans-serif; }
+    body.blog #main article ul.meta li.categories-title {
+      font-size: 16px; }
+    body.blog #main article ul.meta li.categories {
+      font-size: 16px; }
+  body.blog #main article div.primaryimage {
+    width: 349px;
+    height: 270px;
+    overflow: hidden;
+    display: block;
+    float: left;
+    margin-right: 15px;
+    box-shadow: 0px 1px 2px #000; }
+    body.blog #main article div.primaryimage img {
+      width: 100%; }
+  body.blog #main article ul.additionalimages {
+    position: absolute;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    top: 195px; }
+    body.blog #main article ul.additionalimages li {
+      width: 100px;
+      height: 100px;
+      overflow: hidden;
+      display: block;
+      float: left;
+      box-shadow: 0px 1px 2px #000; }
+      body.blog #main article ul.additionalimages li img {
+        width: 100%; }
+    body.blog #main article ul.additionalimages li.more {
+      width: 100px;
+      height: 40px;
+      margin-top: 60px;
+      background-image: url(images/paper/sand.jpg);
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 40px;
+      color: #000; }
+  body.blog #main article h1 {
+    font-size: 20px;
+    line-height: 20px; }
+  body.blog #main article p {
+    margin: 0px;
+    padding: 0px 15px 0px 510px;
+    font-size: 20px;
+    line-height: 28px; }
+  body.blog #main article p.columns {
+    padding: 0px 15px 0px 0px;
+    column-count: 2;
+    -moz-column-count: 2;
+    -webkit-column-count: 2;
+    column-gap: 40px;
+    -moz-column-gap: 40px;
+    -webkit-column-gap: 40px; }
+  body.blog #main article a.more {
+    position: absolute;
+    width: 125px;
+    height: 40px;
+    left: 635px;
+    top: 255px;
+    background-image: url(images/paper/sand.jpg);
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 40px;
+    box-shadow: 0px 1px 2px #000;
+    text-decoration: none;
+    color: #000; }
+    body.blog #main article a.more:hover {
+      box-shadow: 0px 1px 1px #777;
+      margin-top: 1px; }
+
+/* content - individual pages */
+body.single header .navigation .separator {
+  margin: 0px 102px; }
+body.single #main article h1 {
+  border-bottom: 1px solid #333;
+  padding: 25px 15px 35px;
+  font-size: 41px;
+  line-height: 45px; }
+body.single #main article p {
+  font-size: 20px;
+  line-height: 30px;
+  padding: 0px 100px;
+  text-align: justify; }
+body.single #main article .meta {
+  text-align: right;
+  font-size: 16px;
+  padding-bottom: 30px; }
+  body.single #main article .meta .separator {
+    background: url(images/separator-fish-single.png);
+    background-size: 18px;
+    width: 18px;
+    height: 9px;
+    display: inline-block;
+    position: relative;
+    top: -1px;
+    padding: 0px;
+    margin: 0px 15px; }
+body.single #main article .gallery {
+  margin-top: 60px;
+  text-align: center; }
+  body.single #main article .gallery figure {
+    margin: 0px 0px 10px; }
+    body.single #main article .gallery figure img {
+      box-shadow: 0px 1px 2px #000;
+      width: 90%;
+      height: auto; }
+
+/* Responsive Overrides
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* switch to fluid if less than the fixed width size */
+@media (max-width: 950px) {
+  header .fixed-width {
+    width: 100%; }
+    header .fixed-width .stripe {
+      display: none; }
+  header .social {
+    display: none;
+    /* change to display elsewhere */ }
+  header .stripe {
+    left: 0px;
+    width: 100%; }
+    header .stripe .detail {
+      display: none; }
+  header .title {
+    position: relative;
+    margin: 0px auto; }
+
+  .fixed-width {
+    width: 100%; }
+
+  body.blog #main article {
+    height: auto; }
+    body.blog #main article ul.meta {
+      display: none; }
+    body.blog #main article div.primaryimage {
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 200px;
+      margin-bottom: 15px; }
+    body.blog #main article ul.additionalimages {
+      display: none; }
+    body.blog #main article h1 {
+      padding: 0px; }
+    body.blog #main article p, body.blog #main article p.columns {
+      margin: 5px 0px 10px;
+      padding: 0px;
+      column-count: 1;
+      -moz-column-count: 1;
+      -webkit-column-count: 1; }
+    body.blog #main article a.more {
+      position: relative;
+      left: 0px;
+      top: 0px;
+      display: block;
+      margin: 0px auto 20px; }
+
+  body.single #main article p {
+    padding: 0px; }
+  body.single #main article .meta {
+    text-align: center; }
+  body.single #main article .gallery figure img {
+    width: 100%; } }
+/* remove the navigation and scale down title if less than the threshold */
+@media (max-width: 750px) {
+  header {
+    height: 26vw; }
+    header .title {
+      width: 95vw;
+      height: 25vw;
+      background-size: 100%; }
+      header .title a {
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100%; }
+    header .navigation {
+      display: none;
+      /* change to display elsewhere */ }
+    header .stripe {
+      display: none; }
+
+  body.single #main article h1 {
+    font-size: 5vw;
+    line-height: 6vw; } }
+/* adjustment for negative space used by title area */
+@media (max-width: 1030px) {
+  header .title {
+    left: 0px; }
+  header .fixed-width .stripe .detail {
+    left: 415px; } }
+
+/*# sourceMappingURL=main.css.map */
