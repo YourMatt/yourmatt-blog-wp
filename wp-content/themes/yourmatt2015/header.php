@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width"/>
     <title>IM Your Matt</title>
     <link rel="stylesheet" href="<?= get_template_directory_uri () ?>/css/main.css" type="text/css" media="all"/>
-    <!--<link rel='stylesheet' id='genericons-css'  href='/wp-content/themes/twentyfifteen/genericons/genericons.css?ver=3.2' type='text/css' media='all' />-->
+    <link rel='stylesheet' id='genericons-css'  href='<?= get_template_directory_uri () ?>/genericons/genericons.css?ver=3.2' type='text/css' media='all' />
     <script type='text/javascript' src='/wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
     <!--<script type='text/javascript' src='/js/main.js'></script>-->
     <!--<script type='text/javascript' src='/js/imagefills.js'></script>-->
