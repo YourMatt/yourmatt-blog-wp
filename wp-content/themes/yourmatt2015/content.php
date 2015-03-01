@@ -1,24 +1,92 @@
+<?
+$post_data = get_post ();
+
+// pull title
+$post_name = $post_data->post_title;
+$post_url = "/" . $post_data->post_name;
+
+// pull date elements
+$post_date = strtotime ($post_data->post_date);
+$post_date_year = date ("Y", $post_date);
+$post_date_month = date ("F", $post_date);
+$post_date_day = date ("j", $post_date);
+
+// pull the content
+$post_content = $post_data->post_excerpt;
+if (! $post_content) {
+    $post_content = substr (strip_tags ($post_data->post_content), 0, 200) . "...";
+}
+
+// load the post categories
+$post_category_ids = wp_get_post_categories ($post_data->ID);
+$post_categories = array ();
+foreach ($post_category_ids as $post_category_id) {
+    $post_category_meta = get_category ($post_category_id);
+    $post_categories[] = array (
+        "name" => $post_category_meta->name,
+        "url" => "/category/" . $post_category_meta->slug
+    );
+}
+
+// load the primary thumbnail if available
+$main_image_url = "";
+if (has_post_thumbnail ()) {
+    $main_image_url = wp_get_attachment_image_src (get_post_thumbnail_id(), "large")[0];
+}
+
+// load the gallery images if available
+$gallery_images = array ();
+$gallery = get_post_gallery ($post_data->ID, false);
+if ($gallery) {
+    $gallery_image_ids = explode (",", $gallery["ids"]);
+
+    if (! $main_image_url) {
+        $main_image_url = wp_get_attachment_image_src (array_shift ($gallery_image_ids), "large")[0];
+    }
+
+    $num_additional_images = count ($gallery_image_ids);
+
+    for ($i = 0; $i < 4; $i++) {
+        if (! $gallery_image_ids[$i]) break;
+
+        $gallery_images[] = wp_get_attachment_image_src ($gallery_image_ids[$i], "thumbnail")[0];
+        $num_additional_images--;
+    }
+}
+
+?>
+
 <article>
     <ul class="meta">
-        <li class="year">2015</li>
-        <li class="month">February</li>
-        <li class="day">16</li>
+        <li class="year"><?= $post_date_year ?></li>
+        <li class="month"><?= $post_date_month ?></li>
+        <li class="day"><?= $post_date_day ?></li>
+        <? if ($post_categories) :
+                $category_links = array ();
+                foreach ($post_categories as $post_category) :
+                    $category_links[] = "<a href=\"" . $post_category["url"] . "\">" . $post_category["name"] . "</a>";
+                endforeach;
+                $category_links = implode (", ", $category_links); ?>
         <li class="categories-title">Filed under</li>
-        <li class="categories"><a href="/category/webspotlights">Web Spotlights</a></li>
+        <li class="categories"><?= $category_links ?></li>
+        <? endif; ?>
     </ul>
+    <? if ($main_image_url) : ?>
     <div class="primaryimage fill-scaled">
-        <img src="http://yourmatt.com/wp-content/uploads/2012/10/2009-06-21-11.44.35-1024x768.jpg"/>
+        <img src="<?= $main_image_url ?>"/>
     </div>
+    <? endif; ?>
+    <? if ($gallery_images) : ?>
     <ul class="additionalimages">
-        <li class="fill-scaled"><img src="http://yourmatt.com/wp-content/uploads/2012/10/2009-07-01-21.11.11-150x150.jpg"/></li>
-        <li class="fill-scaled"><img src="http://yourmatt.com/wp-content/uploads/2012/10/2009-07-01-22.03.10-150x150.jpg"/></li>
-        <li class="fill-scaled"><img src="http://yourmatt.com/wp-content/uploads/2012/10/2009-07-01-22.11.52-150x150.jpg"/></li>
-        <li class="fill-scaled"><img src="http://yourmatt.com/wp-content/uploads/2012/10/2009-07-04-01.20.19-150x150.jpg"/></li>
-        <li class="more">+ 28 more</li>
+        <? foreach ($gallery_images as $gallery_image_url) : ?>
+        <li class="fill-scaled"><img src="<?= $gallery_image_url ?>"/></li>
+        <? endforeach; ?>
+        <? if ($num_additional_images) : ?>
+        <li class="more">+ <?= $num_additional_images ?> more</li>
+        <? endif; ?>
     </ul>
-    <h1>Sample Photos</h1>
-    <p>This is a sample text area to provide an excerpt for this gallery post.  It will be of enough length to
-        give a synopsis, but not expected to give any more info than that.  I need to remove the line breaks
-        here; I mean hyphens here.  This is the end.</p>
-    <a class="more" href="/">Read More</a>
+    <? endif; ?>
+    <h1><?= $post_name ?></h1>
+    <p<? if (! $main_image_url) : ?> class="columns"<? endif; ?>><?= $post_content ?></p>
+    <a class="more" href="<?= $post_url ?>">Read More</a>
 </article>
