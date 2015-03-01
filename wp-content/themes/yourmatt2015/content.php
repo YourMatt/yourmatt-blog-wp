@@ -11,12 +11,6 @@ $post_date_year = date ("Y", $post_date);
 $post_date_month = date ("F", $post_date);
 $post_date_day = date ("j", $post_date);
 
-// pull the content
-$post_content = $post_data->post_excerpt;
-if (! $post_content) {
-    $post_content = substr (strip_tags ($post_data->post_content), 0, 200) . "...";
-}
-
 // load the post categories
 $post_category_ids = wp_get_post_categories ($post_data->ID);
 $post_categories = array ();
@@ -52,6 +46,13 @@ if ($gallery) {
         $gallery_images[] = wp_get_attachment_image_src ($gallery_image_ids[$i], "thumbnail")[0];
         $num_additional_images--;
     }
+}
+
+// pull the content
+$post_content = $post_data->post_excerpt;
+if (! $post_content) { // temporary until adding excerpts for all old posts
+    $post_max_chars = ($main_image_url) ? 200 : 550;
+    $post_content = substr (strip_tags ($post_data->post_content), 0, $post_max_chars) . "...";
 }
 
 ?>

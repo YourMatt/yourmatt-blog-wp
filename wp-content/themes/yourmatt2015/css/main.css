@@ -179,34 +179,52 @@ header {
       color: #000; }
 
 /* content - list pages */
-body.blog header .navigation .separator {
+body.blog header .navigation .separator,
+body.archive header .navigation .separator,
+body.search header .navigation .separator {
   margin: 0px 10px; }
-body.blog #main article {
+body.blog #main article,
+body.archive #main article,
+body.search #main article {
   height: 280px; }
-  body.blog #main article ul.meta {
+  body.blog #main article ul.meta,
+  body.archive #main article ul.meta,
+  body.search #main article ul.meta {
     width: 110px;
     list-style: none;
     margin: 0px 15px 0px 0px;
     padding: 0px;
     display: block;
     float: left; }
-    body.blog #main article ul.meta li.year {
+    body.blog #main article ul.meta li.year,
+    body.archive #main article ul.meta li.year,
+    body.search #main article ul.meta li.year {
       font-size: 20px;
       line-height: 20px; }
-    body.blog #main article ul.meta li.month {
-      font-size: 30px;
+    body.blog #main article ul.meta li.month,
+    body.archive #main article ul.meta li.month,
+    body.search #main article ul.meta li.month {
+      font-size: 27px;
       line-height: 23px;
       font-weight: bold; }
-    body.blog #main article ul.meta li.day {
+    body.blog #main article ul.meta li.day,
+    body.archive #main article ul.meta li.day,
+    body.search #main article ul.meta li.day {
       font-size: 85px;
       line-height: 85px;
       text-align: center;
       font-family: "azo-sans-uber", sans-serif; }
-    body.blog #main article ul.meta li.categories-title {
+    body.blog #main article ul.meta li.categories-title,
+    body.archive #main article ul.meta li.categories-title,
+    body.search #main article ul.meta li.categories-title {
       font-size: 16px; }
-    body.blog #main article ul.meta li.categories {
+    body.blog #main article ul.meta li.categories,
+    body.archive #main article ul.meta li.categories,
+    body.search #main article ul.meta li.categories {
       font-size: 16px; }
-  body.blog #main article div.primaryimage {
+  body.blog #main article div.primaryimage,
+  body.archive #main article div.primaryimage,
+  body.search #main article div.primaryimage {
     width: 349px;
     height: 270px;
     overflow: hidden;
@@ -214,24 +232,34 @@ body.blog #main article {
     float: left;
     margin-right: 15px;
     box-shadow: 0px 1px 2px #000; }
-    body.blog #main article div.primaryimage img {
+    body.blog #main article div.primaryimage img,
+    body.archive #main article div.primaryimage img,
+    body.search #main article div.primaryimage img {
       width: 100%; }
-  body.blog #main article ul.additionalimages {
+  body.blog #main article ul.additionalimages,
+  body.archive #main article ul.additionalimages,
+  body.search #main article ul.additionalimages {
     position: absolute;
     list-style: none;
     margin: 0px;
     padding: 0px;
     top: 195px; }
-    body.blog #main article ul.additionalimages li {
+    body.blog #main article ul.additionalimages li,
+    body.archive #main article ul.additionalimages li,
+    body.search #main article ul.additionalimages li {
       width: 100px;
       height: 100px;
       overflow: hidden;
       display: block;
       float: left;
       box-shadow: 0px 1px 2px #000; }
-      body.blog #main article ul.additionalimages li img {
+      body.blog #main article ul.additionalimages li img,
+      body.archive #main article ul.additionalimages li img,
+      body.search #main article ul.additionalimages li img {
         width: 100%; }
-    body.blog #main article ul.additionalimages li.more {
+    body.blog #main article ul.additionalimages li.more,
+    body.archive #main article ul.additionalimages li.more,
+    body.search #main article ul.additionalimages li.more {
       width: 100px;
       height: 40px;
       margin-top: 60px;
@@ -241,15 +269,21 @@ body.blog #main article {
       font-size: 18px;
       line-height: 40px;
       color: #000; }
-  body.blog #main article h1 {
+  body.blog #main article h1,
+  body.archive #main article h1,
+  body.search #main article h1 {
     font-size: 20px;
     line-height: 20px; }
-  body.blog #main article p {
+  body.blog #main article p,
+  body.archive #main article p,
+  body.search #main article p {
     margin: 0px;
     padding: 0px 15px 0px 510px;
     font-size: 20px;
     line-height: 28px; }
-  body.blog #main article p.columns {
+  body.blog #main article p.columns,
+  body.archive #main article p.columns,
+  body.search #main article p.columns {
     padding: 0px 15px 0px 0px;
     column-count: 2;
     -moz-column-count: 2;
@@ -257,7 +291,9 @@ body.blog #main article {
     column-gap: 40px;
     -moz-column-gap: 40px;
     -webkit-column-gap: 40px; }
-  body.blog #main article a.more {
+  body.blog #main article a.more,
+  body.archive #main article a.more,
+  body.search #main article a.more {
     position: absolute;
     width: 125px;
     height: 40px;
@@ -271,7 +307,9 @@ body.blog #main article {
     box-shadow: 0px 1px 2px #000;
     text-decoration: none;
     color: #000; }
-    body.blog #main article a.more:hover {
+    body.blog #main article a.more:hover,
+    body.archive #main article a.more:hover,
+    body.search #main article a.more:hover {
       box-shadow: 0px 1px 1px #777;
       margin-top: 1px; }
 
@@ -335,27 +373,43 @@ body.single #main article .gallery {
   .fixed-width {
     width: 100%; }
 
-  body.blog #main article {
+  body.blog #main article,
+  body.archive #main article,
+  body.search #main article {
     height: auto; }
-    body.blog #main article ul.meta {
+    body.blog #main article ul.meta,
+    body.archive #main article ul.meta,
+    body.search #main article ul.meta {
       display: none; }
-    body.blog #main article div.primaryimage {
+    body.blog #main article div.primaryimage,
+    body.archive #main article div.primaryimage,
+    body.search #main article div.primaryimage {
       left: 0px;
       top: 0px;
       width: 100%;
       height: 200px;
       margin-bottom: 15px; }
-    body.blog #main article ul.additionalimages {
+    body.blog #main article ul.additionalimages,
+    body.archive #main article ul.additionalimages,
+    body.search #main article ul.additionalimages {
       display: none; }
-    body.blog #main article h1 {
+    body.blog #main article h1,
+    body.archive #main article h1,
+    body.search #main article h1 {
       padding: 0px; }
-    body.blog #main article p, body.blog #main article p.columns {
+    body.blog #main article p, body.blog #main article p.columns,
+    body.archive #main article p,
+    body.archive #main article p.columns,
+    body.search #main article p,
+    body.search #main article p.columns {
       margin: 5px 0px 10px;
       padding: 0px;
       column-count: 1;
       -moz-column-count: 1;
       -webkit-column-count: 1; }
-    body.blog #main article a.more {
+    body.blog #main article a.more,
+    body.archive #main article a.more,
+    body.search #main article a.more {
       position: relative;
       left: 0px;
       top: 0px;

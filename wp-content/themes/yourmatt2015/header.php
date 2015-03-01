@@ -1,4 +1,19 @@
-<!DOCTYPE html>
+<?
+
+    global $posts_selected_year;
+    $search_text = htmlspecialchars ($_REQUEST["s"]);
+
+    $years_archive = array ();
+    for ($i = 2011; $i >= 2007; $i--) {
+        $years_archive[] = $i;
+    }
+
+    $years_current = array ();
+    for ($i = date ("Y"); $i >= 2015; $i--) {
+        $years_current[] = $i;
+    }
+
+?><!DOCTYPE html>
 <html lang="en-us">
 <head>
     <meta charset="utf-8"/>
@@ -28,18 +43,18 @@
             <li><a href="/random">Random</a></li>
             <li class="separator"></li>
             <?  // add navigation for all list pages
-                else : ?>
-            <li class="selected"><a href="/2015">2015</a></li>
+                else :
+                    foreach ($years_current as $year_current) : ?>
+            <li<? if ($year_current == $posts_selected_year) : ?> class="selected"<? endif; ?>><a href="/<?= $year_current ?>"><?= $year_current ?></a></li>
+            <?      endforeach; ?>
             <li class="separator"></li>
-            <li><a href="/2011">2011</a></li>
-            <li><a href="/2010">2010</a></li>
-            <li><a href="/2009">2009</a></li>
-            <li><a href="/2008">2008</a></li>
-            <li><a href="/2007">2007</a></li>
-            <? endif; ?>
+            <?      foreach ($years_archive as $year_archive) : ?>
+            <li<? if ($year_archive == $posts_selected_year) : ?> class="selected"<? endif; ?>><a href="/<?= $year_archive ?>"><?= $year_archive ?></a></li>
+            <?      endforeach;
+                endif; ?>
             <li class="search">
-                <form id="search-form">
-                    <input type="text" value="" name="search"/>
+                <form id="search-form" action="/">
+                    <input type="text" value="<?= $search_text ?>" name="s"/>
                     <a class="search-button genericon genericon-search"></a>
                 </form>
             </li>

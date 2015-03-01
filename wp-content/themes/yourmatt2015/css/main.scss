@@ -287,7 +287,9 @@ header {
 }
 
 /* content - list pages */
-body.blog {
+body.blog,
+body.archive,
+body.search {
   header {
     .navigation {
       .separator {
@@ -314,7 +316,7 @@ body.blog {
           line-height: 20px;
         }
         li.month {
-          font-size: 30px;
+          font-size: 27px;
           line-height: 23px;
           font-weight: bold;
         }
@@ -508,7 +510,9 @@ body.single {
   .fixed-width {
     width: 100%;
   }
-  body.blog {
+  body.blog,
+  body.archive,
+  body.search {
     #main {
       article {
         height: auto;
