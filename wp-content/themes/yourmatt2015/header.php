@@ -8,7 +8,7 @@
     <link rel='stylesheet' id='genericons-css'  href='<?= get_template_directory_uri () ?>/genericons/genericons.css?ver=3.2' type='text/css' media='all' />
     <script type='text/javascript' src='/wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
     <script type='text/javascript' src='<?= get_template_directory_uri () ?>/js/main.js'></script>
-    <!--<script type='text/javascript' src='/js/imagefills.js'></script>-->
+    <script type='text/javascript' src='<?= get_template_directory_uri () ?>/js/containerfills.js'></script>
     <script src="http://use.typekit.net/tvk1ltu.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
 </head>
