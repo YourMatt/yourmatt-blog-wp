@@ -321,11 +321,49 @@ body.single #main article h1 {
   padding: 25px 15px 35px;
   font-size: 41px;
   line-height: 45px; }
+body.single #main article h2 {
+  border-bottom: 1px solid #333;
+  font-size: 25px;
+  text-align: center;
+  font-family: "azo-sans-uber", sans-serif; }
 body.single #main article p {
   font-size: 20px;
   line-height: 30px;
   padding: 0px 100px;
   text-align: justify; }
+body.single #main article ol, body.single #main article ul {
+  padding: 0px 100px;
+  margin: 0px 0px -15px; }
+  body.single #main article ol li, body.single #main article ul li {
+    font-size: 20px;
+    line-height: 30px;
+    padding: 0px 0px 20px;
+    text-align: justify; }
+body.single #main article p img, body.single #main article li img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0px 1px 2px #000; }
+body.single #main article p img.alignleft, body.single #main article li img.alignleft {
+  float: left;
+  margin: 5px 15px 5px -90px;
+  max-width: 66%;
+  height: auto; }
+body.single #main article p img.alignright, body.single #main article li img.alignright {
+  float: right;
+  margin: 5px -90px 5px 15px;
+  max-width: 66%;
+  height: auto; }
+body.single #main article dl {
+  font-size: 20px;
+  line-height: 30px;
+  margin: 0;
+  padding: 0 100px; }
+  body.single #main article dl dd {
+    line-height: 20px;
+    margin: 10px 50px 20px; }
 body.single #main article .meta {
   text-align: right;
   font-size: 16px;
@@ -343,12 +381,15 @@ body.single #main article .meta {
 body.single #main article .gallery {
   margin-top: 60px;
   text-align: center; }
-  body.single #main article .gallery figure {
-    margin: 0px 0px 10px; }
-    body.single #main article .gallery figure img {
+  body.single #main article .gallery .gallery-item {
+    margin: 0px 0px 10px;
+    padding: 0px; }
+    body.single #main article .gallery .gallery-item img {
       box-shadow: 0px 1px 2px #000;
       width: 90%;
       height: auto; }
+  body.single #main article .gallery br {
+    display: none; }
 
 /* Responsive Overrides
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -420,7 +461,7 @@ body.single #main article .gallery {
     padding: 0px; }
   body.single #main article .meta {
     text-align: center; }
-  body.single #main article .gallery figure img {
+  body.single #main article .gallery .gallery-item img {
     width: 100%; } }
 /* remove the navigation and scale down title if less than the threshold */
 @media (max-width: 750px) {
