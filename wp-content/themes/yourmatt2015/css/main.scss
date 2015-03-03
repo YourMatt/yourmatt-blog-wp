@@ -20,6 +20,7 @@ $color-button-text:     #000;
 $color-separators:      #333;
 $color-links:           #29abe2;
 $color-links-hover:     #047999;
+$color-photo-border:    #fff;
 
 /* textures */
 $paper-bark:            url(images/paper/bark.jpg);
@@ -51,6 +52,8 @@ $size-fixed-width:      900px;
 $size-hidden-nav:       750px;
 $size-social-margin:    35px;
 $size-search-width:     210px;
+$size-photo-border:     10px;
+$size-photo-sub-border: $size-photo-border / 2;
 
 $offset-header-stripe:  116px;
 
@@ -96,6 +99,7 @@ body {
 
 /* header */
 header {
+  position: relative;
   width: 100%;
   height: 224px;
 
@@ -334,8 +338,9 @@ body.search {
         }
       }
       div.primaryimage {
-        width: 349px;
-        height: 270px;
+        width: 349px - ($size-photo-border * 2);
+        height: 270px - ($size-photo-border * 2);
+        border: $size-photo-border solid $color-photo-border;
         overflow: hidden;
         display: block;
         float: left;
@@ -354,8 +359,10 @@ body.search {
         top: 195px;
 
         li {
-          width: 100px;
-          height: 100px;
+          width: 100px - ($size-photo-sub-border * 2);
+          height: 100px - ($size-photo-sub-border * 2);
+          border: $size-photo-sub-border solid $color-photo-border;
+          margin-right: 0 - $size-photo-sub-border; /* stack the photos over each other by the margin amount */
           overflow: hidden;
           display: block;
           float: left;
@@ -368,7 +375,9 @@ body.search {
         li.more {
           width: 100px;
           height: 40px;
+          border: none;
           margin-top: 60px;
+          margin-left: 5px;
           background-image: $paper-sand;
           text-align: center;
           font-weight: bold;
@@ -465,8 +474,7 @@ body.single {
           display: block;
           max-width: 100%;
           height: auto;
-          padding: 10px;
-          background-color: #fff;
+          border: $size-photo-border solid $color-photo-border;
           @include shadow-standard();
         }
         img.alignleft {
@@ -521,8 +529,9 @@ body.single {
 
           img {
             @include shadow-standard();
-            width: 90%;
+            width: 95%;
             height: auto;
+            border: $size-photo-border solid $color-photo-border;
           }
         }
         br {
@@ -619,6 +628,7 @@ body.single {
           .gallery-item {
             img {
               width: 100%;
+              padding: 0px;
             }
           }
         }
