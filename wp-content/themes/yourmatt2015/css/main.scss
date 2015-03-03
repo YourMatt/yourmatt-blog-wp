@@ -404,6 +404,10 @@ body.search {
         column-gap: 40px;
         -moz-column-gap: 40px;
         -webkit-column-gap: 40px;
+
+        .indent {
+          margin-left: 20px;
+        }
       }
       a.more {
         position: absolute;
@@ -440,6 +444,8 @@ body.single {
   }
   #main {
     article {
+      padding-bottom: 40px;
+
       h1 {
         border-bottom: 1px solid $color-separators;
         padding: 25px 15px 35px;

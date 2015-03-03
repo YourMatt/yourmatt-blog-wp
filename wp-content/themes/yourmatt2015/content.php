@@ -51,8 +51,15 @@ if ($gallery) {
 // pull the content
 $post_content = $post_data->post_excerpt;
 if (! $post_content) { // temporary until adding excerpts for all old posts
-    $post_max_chars = ($main_image_url) ? 200 : 550;
-    $post_content = substr (strip_tags ($post_data->post_content), 0, $post_max_chars) . "...";
+    if ($main_image_url) {
+        $post_max_chars = 200;
+        $post_content = str_replace ("\n", "", $post_data->post_content);
+    }
+    else {
+        $post_max_chars = 500;
+        $post_content = $post_data->post_content;
+    }
+    $post_content = substr (strip_tags ($post_content), 0, $post_max_chars) . "...";
 }
 
 ?>
@@ -88,6 +95,6 @@ if (! $post_content) { // temporary until adding excerpts for all old posts
     </ul>
     <? endif; ?>
     <h1><?= $post_name ?></h1>
-    <p<? if (! $main_image_url) : ?> class="columns"<? endif; ?>><?= $post_content ?></p>
+    <p<? if (! $main_image_url) : ?> class="columns"<? endif; ?>><?= str_replace ("\n", "<br/><span class=\"indent\"></span>", $post_content) ?></p>
     <a class="more" href="<?= $post_url ?>">Read More</a>
 </article>
