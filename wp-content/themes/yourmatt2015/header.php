@@ -45,9 +45,9 @@ for ($i = date ("Y"); $i >= 2015; $i--) {
         <ul class="navigation">
             <?  // add navigation for single page
                 if (is_single ()) : ?>
-            <li><a href="/older">Older</a></li>
-            <li><a href="/newer">Newer</a></li>
-            <li><a href="/random">Random</a></li>
+            <li><? next_post_link ("%link", "Newer"); ?></li>
+            <li><? previous_post_link ("%link", "Older"); ?></li>
+            <li><a href="/?random=1">Random</a></li>
             <li class="separator"></li>
             <?  // add navigation for all list pages
                 else :
