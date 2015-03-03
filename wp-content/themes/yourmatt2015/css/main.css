@@ -476,7 +476,7 @@ body.single #main article {
     text-align: center; }
   body.single #main article .gallery .gallery-item img {
     width: 100%;
-    padding: 0px; } }
+    border: none; } }
 /* remove the navigation and scale down title if less than the threshold */
 @media (max-width: 750px) {
   header {
