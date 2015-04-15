@@ -61,10 +61,22 @@ $offset-header-stripe:  116px;
 /* Mixins
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-@mixin shadow-standard() {
+@mixin position-absolute ($left, $top, $width: auto, $height: auto) {
+  position: absolute;
+  left: $left;
+  top: $top;
+  width: $width;
+  height: $height;
+}
+
+
+/* Partials
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+%shadow-standard {
   box-shadow: 0px 1px 2px #000;
 }
-@mixin shadow-pressed() {
+%shadow-pressed {
   box-shadow: 0px 1px 1px #777;
 }
 
@@ -104,21 +116,13 @@ header {
   height: 224px;
 
   .title {
-    position: absolute;
-    left: -63px;
-    top: 6px;
-    width: 650px;
-    height: 167px;
+    @include position-absolute (-63px, 6px, 650px, 167px);
     background: $image-title;
     background-size: 650px;
     background-repeat: no-repeat;
 
     a {
-      position: absolute;
-      left: 140px;
-      top: 58px;
-      width: 362px;
-      height: 55px;
+      @include position-absolute (140px, 58px, 362px, 55px);
       text-indent: -9999px;
       overflow: hidden;
       z-index: 1;
@@ -127,31 +131,19 @@ header {
 
   .fixed-width {
     .stripe {
-      position: absolute;
-      width: 75%;
-      height: 15px;
-      top: $offset-header-stripe;
-      left: 25%;
+      @include position-absolute (25%, $offset-header-stripe, 75%, 15px);
       background: none;
       z-index: -1;
 
       .detail {
-        position: absolute;
+        @include position-absolute (352px, -27px, 48px, 29px);
         background-image: $image-stripe-dog;
         background-size: 48px;
-        width: 48px;
-        height: 29px;
-        left: 352px;
-        top: -27px;
       }
     }
   }
   .stripe {
-    position: absolute;
-    width: 60%;
-    height: 15px;
-    left: 40%;
-    top: $offset-header-stripe;
+    @include position-absolute (40%, $offset-header-stripe, 60%, 15px);
     background-image: $image-stripe;
     background-size: 305px;
     z-index: -1;
@@ -170,11 +162,8 @@ header {
   }
 
   .navigation {
+    @include position-absolute (0px, 170px, 100%);
     list-style: none;
-    position: absolute;
-    left: 0px;
-    top: 170px;
-    width: 100%;
     padding: 0px;
     margin: 0px;
     text-align: center;
@@ -224,10 +213,8 @@ header {
         color: $color-header-nav;
       }
       .search-button {
+        @include position-absolute ($size-search-width - 30, 4px);
         font-size: 20px;
-        position: absolute;
-        left: $size-search-width - 30;
-        top: 4px;
         cursor: pointer;
 
         &:hover {
@@ -238,10 +225,7 @@ header {
   }
 
   .social {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
+    @include position-absolute (0px, 0px, 100%);
 
     a {
       display: block;
@@ -271,7 +255,7 @@ header {
 
 /* content - general */
 #main {
-  @include shadow-standard();
+  @extend %shadow-standard;
   background: $paper-eggshell;
   margin-top: 15px;
 
@@ -338,6 +322,7 @@ body.search {
         }
       }
       div.primaryimage {
+        @extend %shadow-standard;
         width: 349px - ($size-photo-border * 2);
         height: 270px - ($size-photo-border * 2);
         border: $size-photo-border solid $color-photo-border;
@@ -345,20 +330,19 @@ body.search {
         display: block;
         float: left;
         margin-right: 15px;
-        @include shadow-standard();
 
         img {
           width: 100%;
         }
       }
       ul.additionalimages {
-        position: absolute;
+        @include position-absolute (15px, 195px);
         list-style: none;
         margin: 0px;
         padding: 0px;
-        top: 195px;
 
         li {
+          @extend %shadow-standard;
           width: 100px - ($size-photo-sub-border * 2);
           height: 100px - ($size-photo-sub-border * 2);
           border: $size-photo-sub-border solid $color-photo-border;
@@ -366,7 +350,6 @@ body.search {
           overflow: hidden;
           display: block;
           float: left;
-          @include shadow-standard();
 
           img {
             width: 100%;
@@ -410,22 +393,18 @@ body.search {
         }
       }
       a.more {
-        position: absolute;
-        width: 125px;
-        height: 40px;
-        left: 635px;
-        top: 255px;
+        @extend %shadow-standard;
+        @include position-absolute (635px, 255px, 125px, 40px);
         background-image: $paper-sand;
         text-align: center;
         font-weight: bold;
         font-size: 18px;
         line-height: 40px;
-        @include shadow-standard();
         text-decoration: none;
         color: $color-button-text;
 
         &:hover {
-          @include shadow-pressed();
+          @extend %shadow-pressed;
           margin-top: 1px;
         }
       }
@@ -477,11 +456,11 @@ body.single {
       }
       p, li {
         img {
+          @extend %shadow-standard;
           display: block;
           max-width: 100%;
           height: auto;
           border: $size-photo-border solid $color-photo-border;
-          @include shadow-standard();
         }
         img.alignleft {
           float: left;
@@ -534,7 +513,7 @@ body.single {
           padding: 0px;
 
           img {
-            @include shadow-standard();
+            @extend %shadow-standard;
             width: 95%;
             height: auto;
             border: $size-photo-border solid $color-photo-border;

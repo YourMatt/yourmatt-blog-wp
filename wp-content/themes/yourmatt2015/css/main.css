@@ -11,6 +11,22 @@
 /* sizes */
 /* Mixins
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+/* Partials
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+#main, body.blog #main article div.primaryimage,
+body.archive #main article div.primaryimage,
+body.search #main article div.primaryimage, body.blog #main article ul.additionalimages li,
+body.archive #main article ul.additionalimages li,
+body.search #main article ul.additionalimages li, body.blog #main article a.more,
+body.archive #main article a.more,
+body.search #main article a.more, body.single #main article p img, body.single #main article li img, body.single #main article .gallery .gallery-item img {
+  box-shadow: 0px 1px 2px #000; }
+
+body.blog #main article a.more:hover,
+body.archive #main article a.more:hover,
+body.search #main article a.more:hover {
+  box-shadow: 0px 1px 1px #777; }
+
 /* Common Classes
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
@@ -57,26 +73,26 @@ header {
       z-index: 1; }
   header .fixed-width .stripe {
     position: absolute;
+    left: 25%;
+    top: 116px;
     width: 75%;
     height: 15px;
-    top: 116px;
-    left: 25%;
     background: none;
     z-index: -1; }
     header .fixed-width .stripe .detail {
       position: absolute;
-      background-image: url(images/header-dog.png);
-      background-size: 48px;
+      left: 352px;
+      top: -27px;
       width: 48px;
       height: 29px;
-      left: 352px;
-      top: -27px; }
+      background-image: url(images/header-dog.png);
+      background-size: 48px; }
   header .stripe {
     position: absolute;
-    width: 60%;
-    height: 15px;
     left: 40%;
     top: 116px;
+    width: 60%;
+    height: 15px;
     background-image: url(images/header-stripe.png);
     background-size: 305px;
     z-index: -1; }
@@ -91,11 +107,12 @@ header {
       top: -4px;
       margin-right: 35px; }
   header .navigation {
-    list-style: none;
     position: absolute;
     left: 0px;
     top: 170px;
     width: 100%;
+    height: auto;
+    list-style: none;
     padding: 0px;
     margin: 0px;
     text-align: center; }
@@ -133,10 +150,12 @@ header {
         outline: none;
         color: #333; }
       header .navigation li.search .search-button {
-        font-size: 20px;
         position: absolute;
         left: 180px;
         top: 4px;
+        width: auto;
+        height: auto;
+        font-size: 20px;
         cursor: pointer; }
         header .navigation li.search .search-button:hover {
           text-decoration: none; }
@@ -144,7 +163,8 @@ header {
     position: absolute;
     left: 0px;
     top: 0px;
-    width: 100%; }
+    width: 100%;
+    height: auto; }
     header .social a {
       display: block;
       float: right;
@@ -165,7 +185,6 @@ header {
 
 /* content - general */
 #main {
-  box-shadow: 0px 1px 2px #000;
   background: url(images/paper/eggshell.jpg);
   margin-top: 15px; }
   #main article {
@@ -232,8 +251,7 @@ body.search #main article {
     overflow: hidden;
     display: block;
     float: left;
-    margin-right: 15px;
-    box-shadow: 0px 1px 2px #000; }
+    margin-right: 15px; }
     body.blog #main article div.primaryimage img,
     body.archive #main article div.primaryimage img,
     body.search #main article div.primaryimage img {
@@ -242,10 +260,13 @@ body.search #main article {
   body.archive #main article ul.additionalimages,
   body.search #main article ul.additionalimages {
     position: absolute;
+    left: 15px;
+    top: 195px;
+    width: auto;
+    height: auto;
     list-style: none;
     margin: 0px;
-    padding: 0px;
-    top: 195px; }
+    padding: 0px; }
     body.blog #main article ul.additionalimages li,
     body.archive #main article ul.additionalimages li,
     body.search #main article ul.additionalimages li {
@@ -256,8 +277,7 @@ body.search #main article {
       /* stack the photos over each other by the margin amount */
       overflow: hidden;
       display: block;
-      float: left;
-      box-shadow: 0px 1px 2px #000; }
+      float: left; }
       body.blog #main article ul.additionalimages li img,
       body.archive #main article ul.additionalimages li img,
       body.search #main article ul.additionalimages li img {
@@ -306,22 +326,20 @@ body.search #main article {
   body.archive #main article a.more,
   body.search #main article a.more {
     position: absolute;
-    width: 125px;
-    height: 40px;
     left: 635px;
     top: 255px;
+    width: 125px;
+    height: 40px;
     background-image: url(images/paper/sand.jpg);
     text-align: center;
     font-weight: bold;
     font-size: 18px;
     line-height: 40px;
-    box-shadow: 0px 1px 2px #000;
     text-decoration: none;
     color: #000; }
     body.blog #main article a.more:hover,
     body.archive #main article a.more:hover,
     body.search #main article a.more:hover {
-      box-shadow: 0px 1px 1px #777;
       margin-top: 1px; }
 
 /* content - individual pages */
@@ -356,8 +374,7 @@ body.single #main article {
     display: block;
     max-width: 100%;
     height: auto;
-    border: 10px solid #fff;
-    box-shadow: 0px 1px 2px #000; }
+    border: 10px solid #fff; }
   body.single #main article p img.alignleft, body.single #main article li img.alignleft {
     float: left;
     margin: 5px 15px 5px -90px;
@@ -397,7 +414,6 @@ body.single #main article {
       margin: 0px 0px 10px;
       padding: 0px; }
       body.single #main article .gallery .gallery-item img {
-        box-shadow: 0px 1px 2px #000;
         width: 95%;
         height: auto;
         border: 10px solid #fff; }
