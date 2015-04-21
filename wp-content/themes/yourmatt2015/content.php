@@ -90,7 +90,7 @@ if (! $post_content) { // temporary until adding excerpts for all old posts
         <li class="fill-scaled"><img src="<?= $gallery_image_url ?>"/></li>
         <? endforeach; ?>
         <? if ($num_additional_images) : ?>
-        <li class="more">+ <?= $num_additional_images ?> more</li>
+        <li class="more"><a href="<?= $post_url ?>">+ <?= $num_additional_images ?> more</a></li>
         <? endif; ?>
     </ul>
     <? endif; ?>

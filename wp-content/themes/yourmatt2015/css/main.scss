@@ -310,7 +310,7 @@ body.search {
         }
         li.day {
           font-size: 85px;
-          line-height: 85px;
+          line-height: 70px;
           text-align: center;
           font-family: $font-stack-headings;
         }
@@ -319,6 +319,7 @@ body.search {
         }
         li.categories {
           font-size: 16px;
+          line-height: 18px;
         }
       }
       div.primaryimage {
@@ -336,6 +337,7 @@ body.search {
         }
       }
       ul.additionalimages {
+        $image-height: 100px;
         @include position-absolute (15px, 195px);
         list-style: none;
         margin: 0px;
@@ -343,8 +345,8 @@ body.search {
 
         li {
           @extend %shadow-standard;
-          width: 100px - ($size-photo-sub-border * 2);
-          height: 100px - ($size-photo-sub-border * 2);
+          width: $image-height - ($size-photo-sub-border * 2);
+          height: $image-height - ($size-photo-sub-border * 2);
           border: $size-photo-sub-border solid $color-photo-border;
           margin-right: 0 - $size-photo-sub-border; /* stack the photos over each other by the margin amount */
           overflow: hidden;
@@ -356,17 +358,28 @@ body.search {
           }
         }
         li.more {
+          $height: 40px;
+
           width: 100px;
-          height: 40px;
+          height: $height;
           border: none;
-          margin-top: 60px;
+          margin-top: $image-height - $height;
           margin-left: 5px;
           background-image: $paper-sand;
           text-align: center;
           font-weight: bold;
           font-size: 18px;
-          line-height: 40px;
+          line-height: $height;
           color: $color-button-text;
+
+          a {
+            color: $color-button-text;
+            text-decoration: none;
+          }
+          &:hover {
+            @extend %shadow-pressed;
+            margin-top: $image-height - $height + 1px;
+          }
         }
       }
       h1 {
