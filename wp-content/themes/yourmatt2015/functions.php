@@ -27,4 +27,20 @@ function random_template() {
     }
 }
 
+function yourmatt_gallery_shortcode ($attr)
+{
+    // create the regular gallery
+    $gallery = gallery_shortcode ($attr);
+    // and add the target attribute to all links.
+    $gallery = str_replace ("<a ", "<a target=\"_blank\" ", $gallery);
+
+    return $gallery;
+
+}
+function yourmatt_replace_img_shortcodes () {
+    remove_shortcode ("gallery", "gallery_shortcode");
+    add_shortcode ("gallery", "yourmatt_gallery_shortcode");
+}
+add_action ("after_setup_theme", "yourmatt_replace_img_shortcodes");
+
 ?>

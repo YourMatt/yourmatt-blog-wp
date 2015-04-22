@@ -397,6 +397,9 @@ body.single #main article {
     margin: 5px -90px 5px 15px;
     max-width: 66%;
     height: auto; }
+  body.single #main article hr {
+    width: 85%;
+    margin: 20px auto 0px; }
   body.single #main article dl {
     font-size: 20px;
     line-height: 30px;
@@ -420,7 +423,7 @@ body.single #main article {
       padding: 0px;
       margin: 0px 15px; }
   body.single #main article .gallery {
-    margin-top: 60px;
+    margin-top: 30px;
     text-align: center; }
     body.single #main article .gallery .gallery-item {
       margin: 0px 0px 10px;
