@@ -30,9 +30,13 @@ if (has_post_thumbnail ()) {
 
 // load the gallery images if available
 $gallery_images = array ();
-$gallery = get_post_gallery ($post_data->ID, false);
-if ($gallery) {
-    $gallery_image_ids = explode (",", $gallery["ids"]);
+$galleries = get_post_galleries ($post_data->ID, false);
+if ($galleries) {
+
+    $gallery_image_ids = array ();
+    foreach ($galleries as $gallery) {
+        $gallery_image_ids = array_merge ($gallery_image_ids, explode (",", $gallery["ids"]));
+    }
 
     if (! $main_image_url) {
         $main_image_url = wp_get_attachment_image_src (array_shift ($gallery_image_ids), "large")[0];
