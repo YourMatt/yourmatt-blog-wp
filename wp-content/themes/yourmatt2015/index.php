@@ -2,7 +2,8 @@
 
 // find the requested year
 if (is_home ()) {
-    $posts_selected_year = date ("Y");
+    // temporarily forcing to year 2015 until I add some updates
+    $posts_selected_year = 2015; // date ("Y");
 }
 else {
     $requested_page = array_pop (explode ("/", $_SERVER['REQUEST_URI']));

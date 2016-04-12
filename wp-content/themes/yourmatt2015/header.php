@@ -9,7 +9,7 @@ for ($i = 2011; $i >= 2007; $i--) {
 }
 
 $years_current = array ();
-for ($i = date ("Y"); $i >= 2015; $i--) {
+for ($i = $posts_selected_year; $i >= 2015; $i--) {
     $years_current[] = $i;
 }
 
