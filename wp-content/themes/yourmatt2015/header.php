@@ -50,10 +50,12 @@ for ($i = $posts_selected_year; $i >= 2015; $i--) {
             <li><a href="/?random=1">Random</a></li>
             <li class="separator"></li>
             <?  // add navigation for all list pages
-                else :
+                else : ?>
+            <li<? if ($posts_selected_year >= 2015) : ?> class="selected"<? endif; ?>><a href="/">2015+</a></li>
+                    <?  /*
                     foreach ($years_current as $year_current) : ?>
             <li<? if ($year_current == $posts_selected_year) : ?> class="selected"<? endif; ?>><a href="/<?= $year_current ?>"><?= $year_current ?></a></li>
-            <?      endforeach; ?>
+            <?      endforeach; */ ?>
             <li class="separator"></li>
             <?      foreach ($years_archive as $year_archive) : ?>
             <li<? if ($year_archive == $posts_selected_year) : ?> class="selected"<? endif; ?>><a href="/<?= $year_archive ?>"><?= $year_archive ?></a></li>

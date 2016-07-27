@@ -18,7 +18,25 @@ get_header ();
 // if the home page, show posts only for the current_year
 if (is_home ()) {
 
-    $query_args = "year=" . $posts_selected_year . "&posts_per_page=-1";
+    if ($posts_selected_year == 2015)
+        $query_args = array(
+            'date_query' => array(
+                array(
+                    'year' => 2015,
+                    'compare' => '>='
+                )
+            ),
+            'posts_per_page' => -1
+        );
+    else
+        $query_args = array(
+            'date_query' => array(
+                array(
+                    'year' => $posts_selected_year
+                )
+            ),
+            'posts_per_page' => -1
+        );
     $query = new WP_Query ($query_args);
     if ($query->have_posts ()) {
         while ($query->have_posts ()) {

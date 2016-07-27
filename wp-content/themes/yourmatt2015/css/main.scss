@@ -46,6 +46,7 @@ $image-stripe-sloth:    url(images/header-sloth.png);
 $image-link-instagram:  url(images/link-instagram.png);
 $image-link-last-fm:    url(images/link-last-fm.png);
 $image-link-twitter:    url(images/link-twitter.png);
+$image-arrow:           url(images/arrow-top.png);
 
 /* sizes */
 $size-fixed-width:      900px;
@@ -456,6 +457,15 @@ body.single {
         padding: 0px 100px;
         text-align: justify;
       }
+      blockquote {
+        p {
+          text-align: center !important;
+          margin: 0px !important;
+          font-weight: bold;
+          text-transform: uppercase;
+          color: rgba(0,0,0,0.5);
+        }
+      }
       ol, ul {
         padding: 0px 100px;
         margin: 0px 0px -15px;
@@ -539,6 +549,20 @@ body.single {
         br {
           display: none;
         }
+      }
+      .top {
+        display: block;
+        margin: 0px auto;
+        background: $image-arrow;
+        background-size: 50px;
+        background-position: center top;
+        background-repeat: no-repeat;
+        color: $color-body-text;
+        text-decoration: none;
+        text-align: center;
+        width: 100px;
+        height: 20px;
+        padding-top: 50px;
       }
     }
   }
