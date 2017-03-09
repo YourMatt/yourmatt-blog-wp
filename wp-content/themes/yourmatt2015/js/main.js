@@ -3,6 +3,9 @@ var $ = jQuery;
 $(document).ready (function () {
 
    yourMatt.setSearchFieldActions ();
+   yourMatt.setPanoramicFormatting ();
+
+   $(window).resize(yourMatt.setPanoramicFormatting);
 
 });
 
@@ -33,6 +36,16 @@ var yourMatt = {
 
          $("#search-form").submit ();
          return false;
+      });
+
+   },
+
+   setPanoramicFormatting: function () {
+
+      var margin = 0 - ($("#primary").width() - $("#main").width()) / 2;
+      $("dl").has("img[alt=pano]").css({
+         "margin-left": margin,
+         "margin-right": margin
       });
 
    }
