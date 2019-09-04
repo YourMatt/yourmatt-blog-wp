@@ -14,3 +14,4 @@ wp-content/wp-cache-config.php
 .DS_Store
 .idea
 .idea/*
+wp-content/themes/yourmatt2015/css/.sass-cache

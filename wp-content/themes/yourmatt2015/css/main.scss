@@ -498,6 +498,13 @@ body.single {
           height: auto;
         }
       }
+      .wp-video {
+        @extend %shadow-standard;
+        display: block;
+        max-width: calc(100% - #{$size-photo-border * 2});
+        height: auto;
+        border: $size-photo-border solid $color-photo-border;
+      }
       hr {
         width: 85%;
         margin: 20px auto 0px;

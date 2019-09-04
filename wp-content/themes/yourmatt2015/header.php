@@ -29,7 +29,7 @@ for ($i = $posts_selected_year; $i >= 2015; $i--) {
     <script type='text/javascript' src='/wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
     <script type='text/javascript' src='<?= get_template_directory_uri () ?>/js/main.js?ver=2'></script>
     <script type='text/javascript' src='<?= get_template_directory_uri () ?>/js/containerfills.js'></script>
-    <script src="http://use.typekit.net/tvk1ltu.js"></script>
+    <script src="https://use.typekit.net/tvk1ltu.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
 
 <? wp_head(); /* keep last line of head */ ?>
