@@ -37,4 +37,6 @@ foreach ($post_category_ids as $post_category_id) {
 
     <? the_content(); ?>
 
+    <a class="top" href="#">Back to Top</a>
+
 </article>
